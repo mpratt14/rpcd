@@ -719,6 +719,7 @@ rpc_iwinfo_freqlist(struct ubus_context *ctx, struct ubus_object *obj,
 			f = (struct iwinfo_freqlist_entry *)&res[i];
 			d = blobmsg_open_table(&buf, NULL);
 
+			blobmsg_add_u16(&buf, "band", f->bandidx);
 			blobmsg_add_u32(&buf, "channel", f->channel);
 			blobmsg_add_u32(&buf, "mhz", f->mhz);
 			blobmsg_add_u8(&buf, "restricted", f->restricted);
